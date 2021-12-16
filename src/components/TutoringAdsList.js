@@ -1,11 +1,13 @@
 import TutoringAd from "./TutoringAd";
+import classes from "./TutoringAdsList.module.css"
 
 function TutoringAdsList(props){
-    console.log(props.ads);
+
     return (
         
-        <ul>
+        <div className={classes.item}>
             {props.ads.map((ad) =>(
+                
                 <TutoringAd
                 key={ad.id}
                 id={ad.id}
@@ -14,11 +16,12 @@ function TutoringAdsList(props){
                 content={ad.content}
                 location={ad.location}
                 subject={ad.subject}
-                price={ad.price}
-                lenghtInMinutes={ad.lenghtInMinutes}
+                pricePerSession={ad.pricePerSession}
+                sessionLenghtinMinutes={ad.sessionLenghtinMinutes}
                 />
+                
             ))}
-        </ul>
+        </div>
     )
 }
 

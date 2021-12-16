@@ -1,0 +1,50 @@
+import Card from "../ui/Card";
+import classes from "./LoginForm.module.css"
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import { useState } from "react";
+
+function LoginForm(){
+    const [password, setPassword] = useState();
+    const [email, setEmail] = useState();
+    const [redirect, setRedirect] = useState(false);
+
+    async function submitHandler(event){
+        event.preventDefault();
+
+        await fetch("https://localhost:5001/Users/login", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials:'include',
+            body: JSON.stringify({
+                email,
+                password
+            })
+        });
+        
+    }
+    debugger;
+    if (redirect) {
+        return <Redirect to="/" />
+    }
+
+  
+
+    return <Card>
+    <form className={classes.form} onSubmit={submitHandler}>
+        <div className={classes.control}>
+            <label htmlFor="email">Email</label>
+            <input type='text' required id='email' onChange={e => setEmail(e.target.value)}></input>
+        </div>
+        <div className={classes.control}>
+            <label htmlFor="password">Passowrd</label>
+            <input type='password' required id='password' onChange={e => setPassword(e.target.value)}></input>
+        </div>
+        <div className={classes.actions}>
+            <button type="submit">Log in</button>
+        </div>
+
+    </form>
+</Card>
+}
+
+export default LoginForm;

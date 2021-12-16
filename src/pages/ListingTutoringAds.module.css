@@ -1,0 +1,9 @@
+.searchContainer{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.searchBar{
+    width: 30%;
+}

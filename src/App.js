@@ -1,10 +1,12 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Layout from "./components/layout/Layout"
 import AddTutoringAdPage from "./pages/AddTutoringAd";
 import DetailsTutoringAdsPage from "./pages/DetailsTutoringAd";
 import HomePage from "./pages/Home";
 import ProfilePage from "./pages/Profile";
 import ListingTutoringAdsPage from "./pages/ListingTutoringAds";
+import LoginPage from "./pages/Login";
+import RegisterPage from "./pages/Register";
 
 
 function App() {
@@ -24,8 +26,14 @@ function App() {
         <Route path="/profile">
           <ProfilePage />
         </Route>
-        <Route path="/tutoringad-details">
+        <Route path="/tutoring-ad-details">
           <DetailsTutoringAdsPage />
+        </Route>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+        <Route path="/register">
+          <RegisterPage/>
         </Route>
         </Layout>
       </Switch>

@@ -1,6 +1,8 @@
+import TutoringAdDetailed from "../components/TutoringAdDetailed";
+
 function DetailsTutoringAdsPage(){
     return <div>
-        Details page
+        <TutoringAdDetailed/>
     </div>
 }
 
