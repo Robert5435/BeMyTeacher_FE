@@ -2,29 +2,19 @@ import { useEffect, useState } from "react";
 import Card from "../../ui/Card";
 import classes from "./ProfileItem.module.css"
 
-function ProfileItem(){
-    const [name,setName] = useState();
+function ProfileItem(props){
 
-    useEffect(() =>{
-        (
-            async () =>{
-                const response = await fetch("https://localhost:5001/Users/login", {
-                    headers: { 'Content-Type': 'application/json' },
-                    credentials:'include',
-                });
-
-                const content = await response.json();
-
-                setName(content.name);
-            }
-        )();
-    })
 
     return <div className={classes.profileItem}>
         <Card>
-            <img className={classes.thumbnail} src='https://media.istockphoto.com/photos/one-beautiful-woman-looking-at-the-camera-in-profile-picture-id1303539316?s=612x612' alt =''></img>
+            <div className={classes.thumbnailContainer}>
+            <img className={classes.thumbnail} src='https://avatars.githubusercontent.com/u/48838006?v=4' alt =''></img>
+            </div>
             <p className={classes.phNumber}>0731512092</p>
-            <button className={classes.actions}>Send a message</button>
+            <p className={classes.name}>{props.name}</p>
+            <div className={classes.actions}>
+            <button >Change phone number</button>
+            </div>
         </Card>
         </div>
     

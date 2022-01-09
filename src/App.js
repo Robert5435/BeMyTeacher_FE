@@ -7,16 +7,33 @@ import ProfilePage from "./pages/Profile";
 import ListingTutoringAdsPage from "./pages/ListingTutoringAds";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
+import { useEffect, useState } from "react";
 
 
 function App() {
+  const [name,setName] = useState();
+
+  useEffect(() =>{
+      (
+          async () =>{
+              const response = await fetch("https://localhost:5001/Users/User", {
+                  headers: { 'Content-Type': 'application/json' },
+                  credentials:'include',
+              });
+
+              const content = await response.json();
+
+              setName(content.name);
+          }
+      )();
+  })
   return (
     
       <Switch>
         <Route path="/" exact={true}>
-          <HomePage />
+          <HomePage name={name}/>
         </Route>
-        <Layout>
+        <Layout name={name} setName={setName}>
         <Route path="/tutoring-ads">
           <ListingTutoringAdsPage />
         </Route>
@@ -24,13 +41,13 @@ function App() {
           <AddTutoringAdPage />
         </Route>
         <Route path="/profile">
-          <ProfilePage />
+          <ProfilePage name={name}/>
         </Route>
         <Route path="/tutoring-ad-details">
           <DetailsTutoringAdsPage />
         </Route>
         <Route path="/login">
-          <LoginPage />
+          <LoginPage setName={setName}/>
         </Route>
         <Route path="/register">
           <RegisterPage/>

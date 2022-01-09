@@ -4,6 +4,9 @@ import classes from "./ProfileTutoringAds.module.css"
 function ProfileTutoringAds(){
     return <div className={classes.cards}> <Card>
         <p className={classes.title}>Title</p>
+        <div className={classes.actions}>
+        <button>Delete</button>
+        </div>
         <span className={classes.subject}>Subject</span>
         <span className={classes.location}>Location</span>
         <p className={classes.price}>Price/Session lenght: 12 lei/ 120 min</p>

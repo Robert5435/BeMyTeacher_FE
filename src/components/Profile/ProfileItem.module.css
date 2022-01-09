@@ -4,8 +4,16 @@
   height: 60%;
 }
 
+.name{
+  font-size: xx-large;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
 
-
+.thumbnailContainer{
+  padding-top: 10px;
+}
 
 .thumbnail {
     width: 124px;
@@ -26,6 +34,7 @@
 .actions {
   display: flex;
   justify-content: center;
+  padding-bottom: 10px;
   }
   
 .actions button {

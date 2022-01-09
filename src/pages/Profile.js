@@ -3,9 +3,9 @@ import ProfileItem from "../components/Profile/ProfileItem";
 import Card from "../ui/Card";
 import classes from "./Profile.module.css"
 
-function ProfilePage(){
+function ProfilePage(props){
     return <section className={classes.section} >
-        <ProfileItem  />
+        <ProfileItem name={props.name} />
         <AdsContainer/>
     </section>
 }

@@ -3,7 +3,7 @@ import classes from "./LoginForm.module.css"
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import { useState } from "react";
 
-function LoginForm(){
+function LoginForm(props){
     const [password, setPassword] = useState();
     const [email, setEmail] = useState();
     const [redirect, setRedirect] = useState(false);
@@ -11,7 +11,7 @@ function LoginForm(){
     async function submitHandler(event){
         event.preventDefault();
 
-        await fetch("https://localhost:5001/Users/login", {
+        const response = await fetch("https://localhost:5001/Users/login", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials:'include',
@@ -20,11 +20,15 @@ function LoginForm(){
                 password
             })
         });
-        
+        debugger;
+        const content = await response.json()
+        console.log(content)
+        setRedirect(true)
+        props.setName(content.email)
+
     }
-    debugger;
     if (redirect) {
-        return <Redirect to="/" />
+        return <Redirect to="/tutoring-ads" />
     }
 
   

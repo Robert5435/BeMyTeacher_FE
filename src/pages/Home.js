@@ -2,11 +2,11 @@ import MainNavigation from "../components/layout/MainNavigation";
 import Subject from "../components/Subject";
 import SearchBar from "../ui/SearchBar";
 
-function HomePage(){
+function HomePage(props){
     return (
 
     <section >
-        <MainNavigation/>
+        <MainNavigation name={props.name}/>
         <section style={{
             height: "100px",
         }}>

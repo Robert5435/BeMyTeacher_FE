@@ -1,10 +1,10 @@
 import LoginForm from "../components/LoginForm";
 import classes from "./Login.module.css"
 
-function LoginPage(){
+function LoginPage(props){
     return <section className={classes.section}>
     <h1>Log In</h1>
-    <LoginForm/>
+    <LoginForm setName={props.setName}/>
 </section>
 }
 
