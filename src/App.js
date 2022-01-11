@@ -8,10 +8,13 @@ import ListingTutoringAdsPage from "./pages/ListingTutoringAds";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import { useEffect, useState } from "react";
+import ProtectedRoute from "./components/ProtectedRoute";
+import PageToBeProtected from "./pages/PageToBeProtected";
 
 
 function App() {
   const [name,setName] = useState();
+  const [isAuth,setIsAuth] = useState(false);
 
   useEffect(() =>{
       (
@@ -30,6 +33,7 @@ function App() {
   return (
     
       <Switch>
+        <ProtectedRoute path="/pagetobeprotected" component={PageToBeProtected} isAuth={isAuth}/>
         <Route path="/" exact={true}>
           <HomePage name={name}/>
         </Route>

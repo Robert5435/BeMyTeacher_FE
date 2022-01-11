@@ -47,16 +47,15 @@ function ListingTutoringAdsPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [loadedTutoringAds, setLoadedTutoringAds] = useState([]);
     const optionsSubject = [
-        { value: 1, label: 'Mathematics' },
-        { value: 2, label: 'History' },
+        { value: 2, label: 'Mathematics' },
         { value: 3, label: 'Computer Science' },
-        { value: 4, label: 'English' }
+        { value: 1, label: 'English' }
     ]
     const optionsLocation=[
         {value: 1, label:'Bucharest'},
-        {value: 2, label:'Brasov'},
-        {value: 3, label:'Arad'},
-        {value: 4, label:'Constanta'}
+        {value: 4, label:'Brasov'},
+        {value: 2, label:'Arad'},
+        {value: 3, label:'Constanta'}
     ]
     useEffect(() => {
         setIsLoading(true)
