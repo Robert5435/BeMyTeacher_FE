@@ -2,17 +2,22 @@ import {Route, Redirect} from 'react-router-dom';
 
 
 
-function ProtectedRoute({isAuth: isAuth, component: Component, ...rest}){
-    debugger;
+function ProtectedRoute({component: Component,isAuth:isAuth, ...rest}){
+    if (isAuth)  {
+        return <Component {...rest} />
+    }
+
+
     return (
     <Route {...rest} render={(props)=>{
-        if (isAuth){
-            return <Component />
-        }else{
+    //     // console.log(isAuth);
+    //     if (isAuth){
+    //         return <component />
+    //     }else{
             return(
                 <Redirect to={{pathname: "/", state: {from: props.location}}} />
             )
-        }
+    //     }
     }}
     />);
 }

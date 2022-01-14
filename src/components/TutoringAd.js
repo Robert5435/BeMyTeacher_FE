@@ -1,5 +1,6 @@
 import Card from "../ui/Card";
 import classes from "./TutoringAd.module.css"
+import { Link } from "react-router-dom";
 
 function TutoringAd(props){
     var content = props.content;
@@ -9,8 +10,13 @@ function TutoringAd(props){
         content = content.substring(0,300);
         content = content + "..."
     }
+
+    var link = `/tutoring-ad-details/${props.id}`
     return (
     <div className={classes.item}>
+        <Link to={link}>
+        <button style={{border:"none",
+    background:"none"}}>
         <Card>
         <div className={classes.image}>
             <img src="https://media.istockphoto.com/photos/one-beautiful-woman-looking-at-the-camera-in-profile-picture-id1303539316?s=612x612" alt=""/>
@@ -28,6 +34,8 @@ function TutoringAd(props){
             <p className={classes.price}>Price/Session Lenght: {props.pricePerSession} Lei/{props.sessionLenghtinMinutes} Mins</p>
         </div>
         </Card>
+        </button>
+        </Link>
 
     </div>)
 }

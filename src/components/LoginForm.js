@@ -20,11 +20,10 @@ function LoginForm(props){
                 password
             })
         });
-        debugger;
         const content = await response.json()
-        console.log(content)
-        setRedirect(true)
         props.setName(content.email)
+        setRedirect(true)
+        
 
     }
     if (redirect) {

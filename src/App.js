@@ -10,34 +10,40 @@ import RegisterPage from "./pages/Register";
 import { useEffect, useState } from "react";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PageToBeProtected from "./pages/PageToBeProtected";
+import { Cookies } from "react-cookie";
+
 
 
 function App() {
-  const [name,setName] = useState();
-  const [isAuth,setIsAuth] = useState(false);
+  const [name, setName] = useState();
+  const [isAuth, setIsAuth] = useState();
 
-  useEffect(() =>{
-      (
-          async () =>{
-              const response = await fetch("https://localhost:5001/Users/User", {
-                  headers: { 'Content-Type': 'application/json' },
-                  credentials:'include',
-              });
+  useEffect(() => {
 
-              const content = await response.json();
+    const ceva = async () => {
+      const response = await fetch("https://localhost:5001/Users/User", {
+        headers: new Headers({ 'Content-Type': 'application/json' }, { 'Authorization': 'Bearer' }),
+        credentials: 'include',
+      });
+      const content = await response.json();
+      setName(content.name);
+      setIsAuth(true)
+    }
+      ceva()
 
-              setName(content.name);
-          }
-      )();
+
+
   })
+
+
   return (
-    
-      <Switch>
-        <ProtectedRoute path="/pagetobeprotected" component={PageToBeProtected} isAuth={isAuth}/>
-        <Route path="/" exact={true}>
-          <HomePage name={name}/>
-        </Route>
-        <Layout name={name} setName={setName}>
+
+    <Switch>
+      <ProtectedRoute path="/pagetobeprotected" component={PageToBeProtected} isAuth={isAuth} />
+      <Route path="/" exact={true}>
+        <HomePage name={name} />
+      </Route>
+      <Layout name={name} setName={setName}>
         <Route path="/tutoring-ads">
           <ListingTutoringAdsPage />
         </Route>
@@ -45,20 +51,20 @@ function App() {
           <AddTutoringAdPage />
         </Route>
         <Route path="/profile">
-          <ProfilePage name={name}/>
+          <ProfilePage name={name} />
         </Route>
-        <Route path="/tutoring-ad-details">
+        <Route path="/tutoring-ad-details/:id">
           <DetailsTutoringAdsPage />
         </Route>
         <Route path="/login">
-          <LoginPage setName={setName}/>
+          <LoginPage setName={setName} />
         </Route>
         <Route path="/register">
-          <RegisterPage/>
+          <RegisterPage />
         </Route>
-        </Layout>
-      </Switch>
-    
+      </Layout>
+    </Switch>
+
   );
 }
 

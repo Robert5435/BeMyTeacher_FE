@@ -10,7 +10,6 @@ function MainNavigation(props) {
   props.setName();
   }
   let menu;
-  console.log(props.name)
 
   if(!props.name){
     menu = (        

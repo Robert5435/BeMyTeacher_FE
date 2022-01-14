@@ -1,7 +1,10 @@
 import classes from "./Card.module.css";
 
 function Card(props) {
-  return <div className={classes.card}>
+  function clickHandler(){
+    console.log("click")
+  }
+  return <div className={classes.card} onClick={props.onClick}>
       {props.children}
   </div>;
 }
