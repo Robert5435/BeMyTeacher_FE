@@ -5,57 +5,24 @@ import Select from 'react-select'
 import classes from "./ListingTutoringAds.module.css";
 
 
-const DUMMY_DATA = [
-    {
-        id: "1",
-        image: 'https://media.istockphoto.com/photos/one-beautiful-woman-looking-at-the-camera-in-profile-picture-id1303539316?s=612x612',
-        user: "Gabriel Cornel",
-        title: "My first ad",
-        content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
-        subject: "Mathematics",
-        calification: "Licensed",
-        availablityOnline: 1,
-        availablityHome: 1,
-        availablityStudentsHome: 0,
-        location: "Bucharest",
-        price: 120,
-        lenghtInMinutes: 60,
-        date: "2000-10-01"
-    },
-    {
-        id: "2",
-        image: 'https://media.istockphoto.com/photos/one-beautiful-woman-looking-at-the-camera-in-profile-picture-id1303539316?s=612x612',
-        user: "Costel Popescu",
-        title: "My Second ad",
-        content: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
-        subject: "Mathematics",
-        calification: "Licensed",
-        availablityOnline: 1,
-        availablityHome: 1,
-        availablityStudentsHome: 0,
-        location: "Bucharest",
-        price: 120,
-        lenghtInMinutes: 60,
-        date: "2000-10-01"
-    }
-]
-
 function ListingTutoringAdsPage() {
 
     const [subject, setSubject] = useState();
     const [location, setLocation] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const [loadedTutoringAds, setLoadedTutoringAds] = useState([]);
+    
     const optionsSubject = [
-        { value: 2, label: 'Mathematics' },
+        { value: 1, label: 'Mathematics' },
         { value: 3, label: 'Computer Science' },
-        { value: 1, label: 'English' }
+        { value: 4, label: 'English' },
+        { value: 2, label: 'History' }
     ]
     const optionsLocation=[
         {value: 1, label:'Bucharest'},
-        {value: 4, label:'Brasov'},
-        {value: 2, label:'Arad'},
-        {value: 3, label:'Constanta'}
+        {value: 2, label:'Brasov'},
+        {value: 3, label:'Arad'},
+        {value: 4, label:'Constanta'}
     ]
     useEffect(() => {
         setIsLoading(true)
