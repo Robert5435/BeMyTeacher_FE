@@ -45,6 +45,10 @@ function RegisterForm() {
                 <label htmlFor="password">Passowrd</label>
                 <input type='password' required onChange={e => setPassword(e.target.value)}></input>
             </div>
+            <div className={classes.control}>
+                <label htmlFor="password">Repeat Password</label>
+                <input type='password'></input>
+            </div>
             <div className={classes.actions}>
                 <button>Register</button>
             </div>
