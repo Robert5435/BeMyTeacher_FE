@@ -39,7 +39,6 @@ function App() {
   return (
 
     <Switch>
-      <ProtectedRoute path="/pagetobeprotected" component={PageToBeProtected} isAuth={isAuth} />
       <Route path="/" exact={true}>
         <HomePage name={name} />
       </Route>
