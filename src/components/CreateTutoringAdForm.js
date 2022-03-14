@@ -15,6 +15,7 @@ function CreateTutoringAdForm(props) {
     const PriceInputRef = useRef();
     const onlineInputRef = useRef();
     const homeInputRef = useRef();
+    const [dataFetch, setDatafetch] = useState();
     const studentHomeInputRef = useRef();
     const [subject, setSubject] = useState();
     const [location, setLocation] = useState();
@@ -142,15 +143,15 @@ function CreateTutoringAdForm(props) {
             </div>
             {/* <div className={classes.control}>
                 <label htmlFor="online">Availability online</label>
-                <input type='checkbox' required id='online' ref={onlineInputRef}></input>
+                <input type='checkbox'  id='online' ref={onlineInputRef}></input>
             </div>
             <div className={classes.control}>
                 <label htmlFor="home">Availability home</label>
-                <input type='checkbox' required id='home' ref={homeInputRef}></input>
+                <input type='checkbox'  id='home' ref={homeInputRef}></input>
             </div>
             <div className={classes.control}>
                 <label htmlFor="studentHome">Availability student's home</label>
-                <input type='checkbox' required id='studentHome' ref={studentHomeInputRef}></input>
+                <input type='checkbox'  id='studentHome' ref={studentHomeInputRef}></input>
             </div> */}
             <div className={classes.actions}>
                 <button>Create Tutoring Ad</button>
