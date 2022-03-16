@@ -19,8 +19,6 @@ function DetailsTutoringAdsPage(){
         loadTutoringAd();
         
     }, []);
-
-    console.log(loadedTutoringAd)
     return <div>
         <TutoringAdDetailed tutoringAd={loadedTutoringAd}/>
     </div>
