@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PageToBeProtected from "./pages/PageToBeProtected";
 import { Cookies } from "react-cookie";
+import EditTutoringAd from "./pages/EditTutoringAd";
 
 
 
@@ -29,7 +30,7 @@ function App() {
       setName(content.name);
       setIsAuth(true)
     }
-      ceva()
+    ceva()
 
 
 
@@ -48,6 +49,9 @@ function App() {
         </Route>
         <Route path="/add-tutoringad">
           <AddTutoringAdPage />
+        </Route>
+        <Route path="/edit/:id">
+          <EditTutoringAd />
         </Route>
         <Route path="/profile">
           <ProfilePage name={name} />
