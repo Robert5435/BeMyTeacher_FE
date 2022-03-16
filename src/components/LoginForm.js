@@ -23,6 +23,7 @@ function LoginForm(props){
         const content = await response.json()
         props.setName(content.email)
         setRedirect(true)
+        window.location.reload();
         
 
     }

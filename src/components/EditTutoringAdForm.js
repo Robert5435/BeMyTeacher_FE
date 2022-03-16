@@ -17,10 +17,10 @@ function EditTutoringAdForm(props) {
     const homeInputRef = useRef();
     const [dataFetch, setDatafetch] = useState();
     const studentHomeInputRef = useRef();
-    const [subject, setSubject] = useState();
-    const [location, setLocation] = useState();
-    const [calification, setCalification] = useState();
-    const [educationLevel, setEducationLevel] = useState();
+    const [subject, setSubject] = useState({ value: props.tutoringAd?.subjectId, label: props.tutoringAd?.subject });
+    const [location, setLocation] = useState({ value: props.tutoringAd?.locationId, label: props.tutoringAd?.location });
+    const [calification, setCalification] = useState({ value: props.tutoringAd?.calificationId, label: props.tutoringAd?.calification });
+    const [educationLevel, setEducationLevel] = useState({ value: props.tutoringAd?.educationLevelId, label: props.tutoringAd?.educationLevel });
     const [defaultSubject, setDefaultSubject] = useState(props.defaultValues);
     const [selectedProps] = useState({ value: 2, label: "altceva" });
 
@@ -80,6 +80,10 @@ function EditTutoringAdForm(props) {
 
     useEffect(() => {
         setDefaultSubject({ value: props.tutoringAd?.subjectId, label: props.tutoringAd?.subject })
+        setCalification({value: props.tutoringAd?.calificationId, label: props.tutoringAd?.calification})
+        setLocation({value: props.tutoringAd?.locationId, label: props.tutoringAd?.location})
+        setSubject({value: props.tutoringAd?.subjectId, label: props.tutoringAd?.subject})
+        setEducationLevel({value: props.tutoringAd?.educationLevelId, label: props.tutoringAd?.educationLevel})
 
     }, [props]);
 
@@ -88,6 +92,7 @@ function EditTutoringAdForm(props) {
 
     const locationDefault = props.tutoringAd?.location;
     const locationIdDefault = props.tutoringAd?.locationId;
+    // debugger;
     if(defaultSubject.value){
         return <div className={classes.item}>
         <Card>
@@ -102,19 +107,11 @@ function EditTutoringAdForm(props) {
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="subject">Subject</label>
-                    <Select options={optionsSubject} onChange={setSubject} defaultValue={defaultSubject} />
-                    <Select
-                        defaultValue={selectedProps}
-                        name="properties"
-                        options={optionsSubject}
-                        className="basic-multi-select"
-                        classNamePrefix="select"
-                        onChange={setSubject}
-                    />
+                    <Select options={optionsSubject} onChange={setSubject} defaultValue={{label: props.tutoringAd?.subject, value: props.tutoringAd?.subjectId}} />
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="location">Location</label>
-                    <Select options={optionsLocation} onChange={setLocation} defaultValue={{ label: locationDefault, value: locationIdDefault }} />
+                    <Select options={optionsLocation} onChange={setLocation} defaultValue={{ label: props.tutoringAd?.location, value: props.tutoringAd?.locationId} }/>
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="calification">Calification</label>
@@ -126,11 +123,11 @@ function EditTutoringAdForm(props) {
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="price">Price</label>
-                    <input type='text' required id='price' ref={PriceInputRef}></input>
+                    <input type='text' required id='price' ref={PriceInputRef} defaultValue={props.tutoringAd?.pricePerSession}></input>
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="sessionLenght">Session Lenght(Minutes)</label>
-                    <input type='text' required id='sessionLenght' ref={sessionLenghtInputRef}></input>
+                    <input type='text' required id='sessionLenght' ref={sessionLenghtInputRef} defaultValue={props.tutoringAd?.sessionLenghtinMinutes}></input>
                 </div>
                 {/* <div className={classes.control}>
                 <label htmlFor="online">Availability online</label>
