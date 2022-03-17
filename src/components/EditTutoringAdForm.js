@@ -41,6 +41,7 @@ function EditTutoringAdForm(props) {
         const tutoringAdData = {
             id: props.tutoringAd.id,
             userId: props.tutoringAd.userId,
+            expirationDate:props.tutoringAd.expirationDate,
             title: enteredTitle,
             content: enteredContent,
             subjectId: enteredSubject,

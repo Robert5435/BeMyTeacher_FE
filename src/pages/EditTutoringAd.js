@@ -47,7 +47,7 @@ function EditTutoringAdPage() {
     }
     else {
 
-        console.log(loadedTutoringAd)
+        console.log(loadedTutoringAd, "fetch data")
 
 
         return <section className={classes.section}>
