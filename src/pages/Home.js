@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import MainNavigation from "../components/layout/MainNavigation";
 import Subject from "../components/Subject";
 import SearchBar from "../ui/SearchBar";
@@ -20,10 +21,11 @@ function HomePage(props){
     alignItems: 'center',
     justifyContent: 'center',
 }}>
-    
-        <Subject name="Mathematics"/>
-        <Subject name="English"/>
-        <Subject name="History"/>
+        <Link to="/tutoring-ads/?selectedSubjectId=1"><Subject name="Mathematics"/></Link>
+        <Link to="/tutoring-ads/?selectedSubjectId=4"><Subject name="English"/></Link>
+        <Link to="/tutoring-ads/?selectedSubjectId=2"><Subject name="History"/></Link>
+        
+        
         </section>
     </section>
     )
