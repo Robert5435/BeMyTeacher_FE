@@ -57,7 +57,8 @@ function MainNavigation(props) {
 
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>BeMyTeacher</div>
+      <Link to="/"><div className={classes.logo}>BeMyTeacher</div></Link>
+      
       <nav>
         {menu}
       </nav>
