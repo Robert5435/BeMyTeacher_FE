@@ -22,7 +22,7 @@ function ProfileTutoringAds(props){
     <Card>
         <p className={classes.title}>{props.title}</p>
         <div className={classes.actions}>
-        <button onClick={handleDelete}>Delete</button><Link to={link} className="btn btn-primary">Edit</Link>
+        <button onClick={handleDelete} >Delete</button><Link to={link} className="btn btn-primary">Edit</Link>
         </div>
         <span className={classes.subject}>{props.subject}</span>
         <span className={classes.location}>{props.location}</span>
