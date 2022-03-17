@@ -28,7 +28,7 @@ function LoginForm(props){
 
     }
     if (redirect) {
-        return <Redirect to="/tutoring-ads" />
+        return <Redirect to="/" />
     }
 
   
