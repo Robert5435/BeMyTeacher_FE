@@ -2,33 +2,38 @@ import { useEffect, useState } from "react";
 import AdsContainer from "../components/Profile/AdsContainer";
 import ProfileItem from "../components/Profile/ProfileItem";
 import Card from "../ui/Card";
+import Modal from "../ui/Modal";
 import classes from "./Profile.module.css"
+import { useAtom } from 'jotai';
+import { isModal } from '../STORE'
 
 function ProfilePage(props) {
     const [loadedTutoringAds, setLoadedTutoringAds] = useState();
     const [isLoading, setIsLoading] = useState(true);
+    const [showModal, setShowModal] = useAtom(isModal);
+
 
 
     useEffect(() => {
         setIsLoading(true)
         fetch("https://localhost:5001/TutoringAds/TutoringAdsOfUser",
-        {
-            headers: { 'Content-Type': 'application/json' },
-            credentials:'include',
-        }).then(response => {
-            return response.json();
-        }).then(data => {
-            const tutoringAds = [];
-            for (const key in data) {
-                const tutoringAd = {
-                    id: key,
-                    ...data[key]
-                };
-                tutoringAds.push(tutoringAd);
-            }
-            setLoadedTutoringAds(tutoringAds);
-            setIsLoading(false);
-        })
+            {
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                const tutoringAds = [];
+                for (const key in data) {
+                    const tutoringAd = {
+                        id: key,
+                        ...data[key]
+                    };
+                    tutoringAds.push(tutoringAd);
+                }
+                setLoadedTutoringAds(tutoringAds);
+                setIsLoading(false);
+            })
     }, []);
 
     if (isLoading) {
@@ -37,10 +42,15 @@ function ProfilePage(props) {
         </section>
     }
 
-    return <section className={classes.section} >
-        <ProfileItem name={props.name} />
-        <AdsContainer ads={loadedTutoringAds} />
-    </section>
+    console.log(showModal,"modal")
+
+    return (<div>
+        <section className={classes.section} >
+            <ProfileItem name={props.name} />
+            <AdsContainer ads={loadedTutoringAds} />
+        </section>
+        { showModal && <Modal />}
+    </div>)
 }
 
 export default ProfilePage;
