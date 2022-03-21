@@ -138,7 +138,7 @@ function CreateTutoringAdForm(props) {
                 <input type='text' required id='price' ref={PriceInputRef}></input>
             </div>
             <div className={classes.control}>
-                <label htmlFor="sessionLenght">Session Lenght(Minutes)</label>
+                <label htmlFor="sessionLenght">Session length(Minutes)</label>
                 <input type='text' required id='sessionLenght' ref={sessionLenghtInputRef}></input>
             </div>
             {/* <div className={classes.control}>

@@ -12,6 +12,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import PageToBeProtected from "./pages/PageToBeProtected";
 import { Cookies } from "react-cookie";
 import EditTutoringAd from "./pages/EditTutoringAd";
+import Footer from "./components/layout/Footer";
 
 
 
@@ -38,6 +39,8 @@ function App() {
 
 
   return (
+    <div className="page-container">
+    <div className="content-container">
 
     <Switch>
       <Route path="/" exact={true}>
@@ -67,7 +70,9 @@ function App() {
         </Route>
       </Layout>
     </Switch>
-
+    </div>
+    {/* <Footer/> */}
+    </div>
   );
 }
 

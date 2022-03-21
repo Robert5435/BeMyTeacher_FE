@@ -8,7 +8,7 @@ function ProfileItem(props){
     return <div className={classes.profileItem}>
         <Card>
             <div className={classes.thumbnailContainer}>
-            <img className={classes.thumbnail} src='https://avatars.githubusercontent.com/u/48838006?v=4' alt =''></img>
+            <img className={classes.thumbnail} src='https://avatarairlines.com/wp-content/uploads/2020/05/Male-placeholder.jpeg' alt =''></img>
             </div>
             <p className={classes.phNumber}>0731512092</p>
             <p className={classes.name}>{props.name}</p>

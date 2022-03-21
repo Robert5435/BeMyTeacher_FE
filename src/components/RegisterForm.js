@@ -42,7 +42,7 @@ function RegisterForm() {
                 <input type='text' required onChange={e => setEmail(e.target.value)}></input>
             </div>
             <div className={classes.control}>
-                <label htmlFor="password">Passowrd</label>
+                <label htmlFor="password">Password</label>
                 <input type='password' required onChange={e => setPassword(e.target.value)}></input>
             </div>
             <div className={classes.control}>
