@@ -3,7 +3,7 @@
   left: 0px;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(200, 200, 200);
+  background-color: rgba(0,0,0,.0001);
   position: fixed;
   display: flex;
   justify-content: center;
@@ -61,11 +61,16 @@
   height: 45px;
   margin: 10px;
   border: none;
-  background-color: cornflowerblue;
+  background-color: #77002e;
   color: white;
   border-radius: 8px;
   font-size: 20px;
   cursor: pointer;
+}
+.modalContainer .footer button:hover,
+.modalContainer .footer button:active {
+  background-color: #a50e48;
+  border-color: #a50e48;
 }
 
 #cancelBtn {
