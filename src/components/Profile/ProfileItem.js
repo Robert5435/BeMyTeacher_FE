@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import Card from "../../ui/Card";
-import classes from "./ProfileItem.module.css"
+import UploadImage from "../UploadImage";
+import classes from "./ProfileItem.module.css";
+import {useAtom} from 'jotai';
+import {isEditProfileModal} from '../../STORE';
 
 function ProfileItem(props){
+        const [showModal, setShowModal] = useAtom(isEditProfileModal);
 
 
     return <div className={classes.profileItem}>
@@ -13,7 +17,7 @@ function ProfileItem(props){
             <p className={classes.phNumber}>0731512092</p>
             <p className={classes.name}>{props.name}</p>
             <div className={classes.actions}>
-            <button >Change phone number</button>
+            <button onClick={()=>{setShowModal(true)}}>Edit Profile</button>
             </div>
         </Card>
         </div>

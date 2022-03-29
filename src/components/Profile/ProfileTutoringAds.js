@@ -17,7 +17,8 @@ function ProfileTutoringAds(props){
             headers: { 'Content-Type': 'application/json' } ,
             credentials:'include',
         });
-        window.location.reload();
+        
+        
     }
 
     var link = "/edit/" + props.id;
@@ -26,6 +27,7 @@ function ProfileTutoringAds(props){
         handleDelete()
         setIsDeletingAd(false)
         setShowModal(false)
+        window.location.reload();
         
     }
 
@@ -34,7 +36,8 @@ function ProfileTutoringAds(props){
     <Card>
         <p className={classes.title}>{props.title}</p>
         <div className={classes.actions}>
-        <Link to={link}><button className="btn"><i className="fa fa-pencil"></i></button></Link><button onClick={()=>{setShowModal(true)}} className="btn"><i className="fa fa-trash" ></i></button>
+            <Link to={link}><button className="btn"><i className="fa fa-pencil"></i></button></Link>
+            <button onClick={()=>{setShowModal(true)}} className="btn"><i className="fa fa-trash" ></i></button>
         </div>
         <span className={classes.subject}>{props.subject}</span>
         <span className={classes.location}>{props.location}</span>

@@ -5,12 +5,15 @@ import Card from "../ui/Card";
 import Modal from "../ui/Modal";
 import classes from "./Profile.module.css"
 import { useAtom } from 'jotai';
-import { isModal } from '../STORE'
+import { isModal,isEditProfileModal } from '../STORE'
+import EditProfileModal from "../ui/EditProfileModal";
 
 function ProfilePage(props) {
     const [loadedTutoringAds, setLoadedTutoringAds] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const [showModal, setShowModal] = useAtom(isModal);
+    const [showEditProfileModal, setShowEditProfileModal] = useAtom(isEditProfileModal);
+
 
 
 
@@ -50,6 +53,7 @@ function ProfilePage(props) {
             <AdsContainer ads={loadedTutoringAds} />
         </section>
         { showModal && <Modal />}
+        { showEditProfileModal && <EditProfileModal/>}
     </div>)
 }
 
