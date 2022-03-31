@@ -1,10 +1,12 @@
 import { useAtom } from 'jotai';
 import UploadImage from '../components/UploadImage';
-import { isEditProfileModal } from '../STORE';
-import classes from './Modal.module.css';
+import { isEditProfileModal,user } from '../STORE';
+import classes from './EditProfileModal.module.css';
 
 function EditProfileModal() {
     const [showModal, setShowModal] = useAtom(isEditProfileModal);
+    const [userInfo, setUserInfo] = useAtom(user);
+    var url = "https://localhost:5001/images/" + userInfo.photoPath;
 
     return (<div className={classes.modalBackground}>
         <div className={classes.modalContainer}>
@@ -15,10 +17,10 @@ function EditProfileModal() {
                 <form>
                     <div className={classes.control}>
                         <p>Change Profile Picture</p>
-                        <img className={classes.thumbnail} src='https://avatarairlines.com/wp-content/uploads/2020/05/Male-placeholder.jpeg' alt =''></img>
+                        <img className={classes.thumbnail} src={url} alt =''></img>
                         <UploadImage/>
                         <p>Edit Phone Number</p>
-                        <input type="text" defaultValue={"0754027983"}/>
+                        <input type="text" defaultValue={userInfo.phoneNumber}/>
                     </div>
                 </form>
             </div>

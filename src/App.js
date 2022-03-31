@@ -13,12 +13,15 @@ import PageToBeProtected from "./pages/PageToBeProtected";
 import { Cookies } from "react-cookie";
 import EditTutoringAd from "./pages/EditTutoringAd";
 import Footer from "./components/layout/Footer";
+import {useAtom} from 'jotai';
+import { user} from './STORE';
 
 
 
 function App() {
   const [name, setName] = useState();
   const [isAuth, setIsAuth] = useState();
+  const [imagePath, setImagePath] = useAtom(user);
 
   useEffect(() => {
 
@@ -28,6 +31,8 @@ function App() {
         credentials: 'include',
       });
       const content = await response.json();
+      console.log(content)
+      setImagePath(content)
       setName(content.name);
       setIsAuth(true)
     }
@@ -35,7 +40,7 @@ function App() {
 
 
 
-  })
+  },[])
 
 
   return (
