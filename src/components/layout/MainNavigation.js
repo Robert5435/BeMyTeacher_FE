@@ -26,6 +26,9 @@ function MainNavigation(props) {
       <li>
         <Link to="/register">Register</Link>
       </li>
+      <li>
+        <Link to="/contact">Contact</Link>
+      </li>
     </ul>
     )
   } else{
@@ -45,6 +48,9 @@ function MainNavigation(props) {
       </li>
       <li>
         <Link to="/login" onClick={Logout}>Logout</Link>
+      </li>
+      <li>
+        <Link to="/contact">Contact</Link>
       </li>
     </ul>)
   }

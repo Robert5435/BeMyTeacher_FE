@@ -15,6 +15,8 @@ import EditTutoringAd from "./pages/EditTutoringAd";
 import Footer from "./components/layout/Footer";
 import {useAtom} from 'jotai';
 import { user} from './STORE';
+import ContactPage from "./pages/Contact";
+import AdminPanelPage from "./pages/AdminPanel";
 
 
 
@@ -72,6 +74,12 @@ function App() {
         </Route>
         <Route path="/register">
           <RegisterPage />
+        </Route>
+        <Route path="/contact">
+          <ContactPage/>
+        </Route>
+        <Route path="/admin-panel">
+          <AdminPanelPage/>
         </Route>
       </Layout>
     </Switch>

@@ -2,14 +2,15 @@ import CreateTutoringAdForm from "../components/CreateTutoringAdForm";
 import classes from "./AddTutoringAd.module.css"
 
 function AddTutoringAdPage() {
-    function AddTutoringAdHandler(tutoringAdData) {
+
+    function AddTutoringAdHandler(tutoringAdData,selectedFile) {
+        var formData = new FormData()
+        formData.append("tutoringAd", JSON.stringify(tutoringAdData))
+        formData.append("file", selectedFile)
         fetch("https://localhost:5001/TutoringAds",
         { 
             method: 'POST', 
-            body: JSON.stringify(tutoringAdData), 
-            headers: { 
-                'Content-Type': 'application/json' 
-            } ,
+            body: formData,
             credentials:'include',
         });
     }
