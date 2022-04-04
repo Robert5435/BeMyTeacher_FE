@@ -7,19 +7,22 @@ import classes from './EditProfileModal.module.css';
 function EditProfileModal() {
     const phNumberInputRef = useRef();
     const [selectedFile, setSelectedFile] = useState();
+    const [preview, setPreview] = useState();
     const [isFilePicked, setIsFilePicked] = useState(false);
     const [showModal, setShowModal] = useAtom(isEditProfileModal);
     const [userInfo, setUserInfo] = useAtom(user);
-    var url = "https://localhost:5001/images/" + userInfo.photoPath;
+    let url = "https://localhost:5001/images/" + userInfo.photoPath;
 
     const changeHandler = (event) => {
         setSelectedFile(event.target.files[0]);
-        setIsFilePicked(true)
+        setIsFilePicked(true);
+        const filePreview = URL.createObjectURL(event.target.files[0]);
+        setPreview(filePreview);
     };
 
 
     const handleSubmissionFile = () => {
-        var enteredPhNumber;
+        let enteredPhNumber;
         if(phNumberInputRef.current.value != null){
             enteredPhNumber = phNumberInputRef.current.value;
         }else{
@@ -52,6 +55,7 @@ function EditProfileModal() {
                 console.error('Error:', error);
             });
             setShowModal(false)
+            window.location.reload()
     };
 
     return (<div className={classes.modalBackground}>
@@ -62,6 +66,7 @@ function EditProfileModal() {
             <div className={classes.body}>
                 <form>
                     <div className={classes.control}>
+                        {selectedFile && <img src={preview} alt={selectedFile.name} className={classes.preview}/>}
                         <p>Change Profile Picture</p>
                         <div >
                             <label htmlFor="file-upload" style={{
