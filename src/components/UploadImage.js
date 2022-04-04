@@ -9,6 +9,8 @@ function UploadImage() {
         setIsFilePicked(true)
     };
 
+    
+
     return (
         <div >
             <label htmlFor="file-upload" style={{
