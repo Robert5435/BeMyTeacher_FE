@@ -43,14 +43,14 @@ function CreateTutoringAdForm(props) {
         // const enteredHome = homeInputRef.current.value;
         // const enteredStudentHome = studentHomeInputRef.current.value;
         const tutoringAdData = {
-            title: enteredTitle,
-            content: enteredContent,
-            subjectId: enteredSubject,
-            locationId: enteredLocation,
-            calificationId: enteredCalification,
-            educationLevelId: enteredEducationLevel,
-            sessionLenghtinMinutes: parseInt(enteredSessionLenght),
-            pricePerSession: parseInt(enteredPrice),
+            Title: enteredTitle,
+            Content: enteredContent,
+            SubjectId: enteredSubject,
+            LocationId: enteredLocation,
+            CalificationId: enteredCalification,
+            EducationLevelId: enteredEducationLevel,
+            SessionLenghtinMinutes: parseInt(enteredSessionLenght),
+            PricePerSession: parseInt(enteredPrice),
             // online: enteredOnline,
             // home: enteredHome,
             // studentHome: enteredStudentHome

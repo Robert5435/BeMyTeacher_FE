@@ -5,7 +5,6 @@ import { Route, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function TutoringAdDetailed(props){
-    console.log(props)
     if(props.tutoringAd){
         if(props.tutoringAd.availabilityOnline){
             var online = "Available online"

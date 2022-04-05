@@ -12,6 +12,8 @@ function TutoringAd(props){
     }
 
     var link = `/tutoring-ad-details/${props.id}`
+    var urlPhoto = `https://localhost:5001/images/${props.photoPath}`;
+    console.log(urlPhoto)
     return (
     <div className={classes.item}>
         <Link to={link}>
@@ -19,7 +21,7 @@ function TutoringAd(props){
     background:"none"}}>
         <Card>
         <div className={classes.image}>
-            <img src="https://media.istockphoto.com/photos/one-beautiful-woman-looking-at-the-camera-in-profile-picture-id1303539316?s=612x612" alt=""/>
+            <img src={urlPhoto} alt=""/>
         </div>
 
         <div className={classes.content}>

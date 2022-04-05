@@ -18,6 +18,7 @@ function TutoringAdsList(props){
                 subject={ad.subject}
                 pricePerSession={ad.pricePerSession}
                 sessionLenghtinMinutes={ad.sessionLenghtinMinutes}
+                photoPath={ad.photoPath}
                 />
                 
             ))}
