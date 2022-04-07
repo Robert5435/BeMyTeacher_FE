@@ -35,7 +35,7 @@ export default function StarsRating(props) {
                     '& > legend': { mt: 2 },
                 }}
             >
-                <Typography component="legend">Read only</Typography>
+                <Typography component="legend">Rating</Typography>
                 <Rating name="read-only" defaultValue={value} readOnly />
                 <p>{counter} users have rated this teacher</p>
 

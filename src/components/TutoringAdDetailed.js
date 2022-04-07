@@ -25,7 +25,9 @@ function TutoringAdDetailed(props){
         }else{
             var stundentHome = "Not available at student's home"
         }
+        
         let photoURL = `https://localhost:5001/images/${props.tutoringAd.photoPath}`
+        let photoUser = `https://localhost:5001/images/${props.tutoringAd.userPhoto}`
     return (
         <div>
         <Card>
@@ -36,7 +38,7 @@ function TutoringAdDetailed(props){
             <h3>{props.tutoringAd.pricePerSession} Lei/{props.tutoringAd.sessionLenghtinMinutes} Mins</h3>
         </div>
         <div className={classes.img}>
-            <img src="https://media.istockphoto.com/photos/one-beautiful-woman-looking-at-the-camera-in-profile-picture-id1303539316?s=612x612" alt=""></img>
+            <img src={photoURL} alt=""></img>
         </div>
 
         <div className={classes.name}>
@@ -69,12 +71,12 @@ function TutoringAdDetailed(props){
         <div className={classes.profileItem}>
         <Card>
             <div className={classes.thumbnailContainer}>
-            <img className={classes.thumbnail} src={photoURL} alt =''></img>
+            <img className={classes.thumbnail} src={photoUser} alt =''></img>
             </div>
             <p className={classes.profileName}>{props.tutoringAd.username}</p>
             <div className={classes.phNumber}>
-            <StarsRating userId={props.tutoringAd.userId} rateCounter={props.tutoringAd.ratingCounter}/>
             <StarsRating userId={props.tutoringAd.userId} readOnly={true} rating={props.tutoringAd.ratingUser} rateCounter={props.tutoringAd.ratingCounter}/>
+            <StarsRating userId={props.tutoringAd.userId} rateCounter={props.tutoringAd.ratingCounter}/>
             </div>
             <div className={classes.actions}>
             <button >Send a message</button>

@@ -8,8 +8,13 @@ import {isEditProfileModal, user} from '../../STORE';
 function ProfileItem(props){
         const [showModal, setShowModal] = useAtom(isEditProfileModal);
         const [userInfo, setUserInfo] = useAtom(user);
+        if(userInfo.photoPath != null){
+            var url = "https://localhost:5001/images/" + userInfo.photoPath;
+        }else{
+            var url = "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
+        }
 
-        var url = "https://localhost:5001/images/" + userInfo.photoPath;
+        
         if(user){
             return <div className={classes.profileItem}>
             <Card>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./AdminPanel.css"
 
 
@@ -14,47 +15,18 @@ function AdminNavBar() {
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">Manage Data</a>
                     <ul className="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Califications</a>
+                            <Link to="/admin-panel/data-califications">Califications</Link>
                         </li>
                         <li>
-                            <a href="#">Subjects</a>
+                            <Link to="/admin-panel/data-subjects">Subjects</Link>
                         </li>
                         <li>
-                            <a href="#">Education Levels</a>
+                            <Link to="/admin-panel/data-educationLevels">Education Levels</Link>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">Manage Users</a>
-                    <ul className="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Pending Ads</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-
-            <ul className="list-unstyled CTAs">
-                <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" className="download">Download source</a>
-                </li>
-                <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" className="article">Back to article</a>
+                    <a href="#">Manage Users</a>
                 </li>
             </ul>
         </nav>)
