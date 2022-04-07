@@ -13,10 +13,10 @@ import PageToBeProtected from "./pages/PageToBeProtected";
 import { Cookies } from "react-cookie";
 import EditTutoringAd from "./pages/EditTutoringAd";
 import Footer from "./components/layout/Footer";
-import {useAtom} from 'jotai';
-import { user} from './STORE';
+import { useAtom } from 'jotai';
+import { user } from './STORE';
 import ContactPage from "./pages/Contact";
-import AdminPanelPage from "./pages/AdminPanel";
+import AdminPanelPage from "./pages/Admin/AdminPanel";
 
 
 
@@ -42,49 +42,49 @@ function App() {
 
 
 
-  },[])
+  }, [])
 
 
   return (
     <div className="page-container">
-    <div className="content-container">
+      <div className="content-container">
 
-    <Switch>
-      <Route path="/" exact={true}>
-        <HomePage name={name} />
-      </Route>
-      <Layout name={name} setName={setName}>
-        <Route path="/tutoring-ads">
-          <ListingTutoringAdsPage />
-        </Route>
-        <Route path="/add-tutoringad">
-          <AddTutoringAdPage />
-        </Route>
-        <Route path="/edit/:id">
-          <EditTutoringAd />
-        </Route>
-        <Route path="/profile">
-          <ProfilePage name={name} />
-        </Route>
-        <Route path="/tutoring-ad-details/:id">
-          <DetailsTutoringAdsPage />
-        </Route>
-        <Route path="/login">
-          <LoginPage setName={setName} />
-        </Route>
-        <Route path="/register">
-          <RegisterPage />
-        </Route>
-        <Route path="/contact">
-          <ContactPage/>
-        </Route>
-        <Route path="/admin-panel">
-          <AdminPanelPage/>
-        </Route>
-      </Layout>
-    </Switch>
-    </div>
-    {/* <Footer/> */}
+        <Switch>
+          <Route path="/" exact={true}>
+            <HomePage name={name} />
+          </Route>
+          <Route path="/admin-panel">
+            <AdminPanelPage />
+          </Route>
+          <Layout name={name} setName={setName}>
+            <Route path="/tutoring-ads">
+              <ListingTutoringAdsPage />
+            </Route>
+            <Route path="/add-tutoringad">
+              <AddTutoringAdPage />
+            </Route>
+            <Route path="/edit/:id">
+              <EditTutoringAd />
+            </Route>
+            <Route path="/profile">
+              <ProfilePage name={name} />
+            </Route>
+            <Route path="/tutoring-ad-details/:id">
+              <DetailsTutoringAdsPage />
+            </Route>
+            <Route path="/login">
+              <LoginPage setName={setName} />
+            </Route>
+            <Route path="/register">
+              <RegisterPage />
+            </Route>
+            <Route path="/contact">
+              <ContactPage />
+            </Route>
+          </Layout>
+        </Switch>
+      </div>
+      {/* <Footer/> */}
     </div>
   );
 }
